@@ -298,11 +298,11 @@ impl<T: Seek + Read> Reader<T> {
         token = self.tokenizer.next_token()?;
 
         if token == Token::PDFStream {
-            return self.parse_stream(PDFObject::Dictionary(dictionary));
+            self.parse_stream(PDFObject::Dictionary(dictionary))
         } else {
             self.tokenizer.seek(ofs)?;
+            Ok(PDFObject::Dictionary(dictionary))
         }
-        Ok(PDFObject::Dictionary(dictionary))
     }
 
     pub fn parse_array(&mut self) -> PDFResult<PDFObject> {
