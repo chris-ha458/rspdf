@@ -38,7 +38,7 @@ pub enum PDFError {
 
     #[error("OperationError `{0}`")]
     OperationError(String),
-    
+
     #[error("PathCreatError `{0}`")]
     PathCreatError(String),
 }

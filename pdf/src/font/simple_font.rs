@@ -91,7 +91,7 @@ impl PDFFont {
 
     pub fn get_unicode(&self, content: &PDFString) -> String {
         // TODO fix this
-        if self.cmap.is_empty(){
+        if self.cmap.is_empty() {
             return content.to_string();
         }
         self.cmap.decode_string(content)
