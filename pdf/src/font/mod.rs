@@ -29,8 +29,8 @@ pub fn create_font<T: Seek + Read>(
         for i in first_char..=last_char {
             // TODO handle this
             width_map.insert(
-                (i & 0xffffffff) as u32,
-                (ws[(i - first_char) as usize].as_i64().unwrap() & 0xffffffff) as u32,
+                (i & 0xffff_ffff) as u32,
+                (ws[(i - first_char) as usize].as_i64().unwrap() & 0xffff_ffff) as u32,
             );
         }
     }
